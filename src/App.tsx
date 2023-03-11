@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Header} from "./component/Header/Header";
+import {Menu} from "./component/Menu/Menu";
+import {Content} from "./component/Content/Content";
+import styled from "styled-components";
+import fonImg from './img/fon.jpg';
+import {StateType} from "./MyState/MyState";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+type AppType = {
+    state: StateType
 }
 
-export default App;
+function App(props:AppType){
+    return (
+        <GlobalWrapper>
+            <Header />
+            <AllContent>
+                <Menu state={props.state.StateMenu}/>
+                <Content />
+            </AllContent>
+        </GlobalWrapper>
+    );
+}
+
+export default App
+
+const GlobalWrapper = styled.div`
+  background-image: url(${fonImg});
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+`
+const AllContent = styled.header`
+  display: flex;
+  border: 0;
+  margin: 0;
+  padding: 0;
+`
