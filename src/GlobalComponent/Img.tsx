@@ -3,14 +3,13 @@ import styled from "styled-components";
 
 type ImgType = {
     nameImg: string
-    extensImg: string
     altImg: string
 }
 
 export const Img:React.FC<ImgType> = (props) =>{
-    const {nameImg, extensImg, altImg} = props
+    const {nameImg, altImg} = props
     return(
-        <Image src={`/icon/${nameImg}.${extensImg}`} alt={altImg}/>
+        <Image src={nameImg} alt={altImg}/>
     )
 }
 

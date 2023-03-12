@@ -19,7 +19,7 @@ export const ListMenu: React.FC<ListMenuType> = (props) => {
     const mapList = state.map((el) => {
         return(
             <Mlink key={el.id}>
-                <Img nameImg={el.link} extensImg={el.extension} altImg={el.link}/>
+                <Img nameImg={el.link} altImg={el.link}/>
                 <NavLink to={`/${el.link}`}>{el.name}</NavLink>
             </Mlink>
         )
