@@ -29,6 +29,7 @@ export const StartPage = () => {
                         <p>yarn add styled-components</p>
                         <p>yarn add @types/styled-components</p>
                         <p>yarn add @reduxjs/toolkit</p>
+                        <p>npx -p @storybook/cli sb init</p>
                     </div>
                 </BlockInf>
                 <BlockInf>
