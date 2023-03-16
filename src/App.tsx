@@ -5,9 +5,10 @@ import {Header} from "./component/Header/Header";
 import {Menu} from "./component/Menu/Menu";
 import {Content} from "./component/Content/Content";
 import styled from "styled-components";
-import fonImg from './img/fon.jpg';
 import {StateType} from "./MyState/MyState";
 import HeaderAppBar from "./component/Header/HeaderAppBar";
+// @ts-ignore
+import videoFon from './video/fon.mp4';
 
 type AppType = {
     state: StateType
@@ -16,23 +17,36 @@ type AppType = {
 function App(props:AppType){
     return (
         <GlobalWrapper>
-            <Header />
-            {/*<HeaderAppBar />*/}
-            <AllContent>
-                <Menu state={props.state.StateMenu}/>
-                <Content />
-            </AllContent>
+            <video autoPlay muted loop preload="auto" style={{width: "100%", height:'100vh', objectFit: "cover"}}>
+                <source type="video/mp4" src={videoFon} />
+            </video>
+            <GlobalContainer>
+                <Header />
+                <AllContent>
+                    <Menu state={props.state.StateMenu}/>
+                    <Content />
+                </AllContent>
+            </GlobalContainer>
         </GlobalWrapper>
     );
 }
 
 export default App
+const GlobalContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+`
+
 
 const GlobalWrapper = styled.div`
-  background-image: url(${fonImg});
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: none;
+  overflow: hidden;
 `
 const AllContent = styled.header`
   display: flex;

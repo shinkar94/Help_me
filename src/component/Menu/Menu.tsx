@@ -50,5 +50,5 @@ export const Menu: React.FC<MenuType> = (props) => {
 }
 
 const ContentMenu = styled.div`
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(129, 129, 129, 0.4);
 `

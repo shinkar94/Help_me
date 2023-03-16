@@ -59,16 +59,24 @@ const FirePanel = styled.div`
   gap: 10px;
 `
 const BlockInf = styled.div`
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(129, 129, 129, 0.4);
   font-size: 18px;
   padding: 5px;
   border-radius: 10px;
   box-shadow: 0px 2px 5px rgb(0, 0, 0);
+  cursor: pointer;
+  transition: 0.5s;
+
   h3 {
-    color: brown;
+    color: black;
   }
+
   p {
     margin: 2px;
-    color: rgb(215,215,215);
+    color: rgb(0, 0, 0);
+  }
+
+  &:hover {
+    background: rgb(215,215,215);
   }
 `

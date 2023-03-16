@@ -38,8 +38,8 @@ export const ListMenu: React.FC<ListMenuType> = (props) => {
 
     return (
         <List>
-            <Paper elevation={2}>
-                <Accordion onClick={onClickHandler} style={{borderRadius: "0px", backgroundColor: "black", color: "white", borderBottom: "1px solid red"}}>
+            <Paper elevation={2} style={{background: "0"}}>
+                <Accordion onClick={onClickHandler} style={{borderRadius: "0px", background: "rgba(129, 129, 129, 0.4)", color: "white", borderBottom: "1px solid red"}}>
                     <AccordionSummary
                         expandIcon={<ExpandMore/>}
                         aria-controls="panel1a-content"
@@ -54,6 +54,7 @@ export const ListMenu: React.FC<ListMenuType> = (props) => {
                     </AccordionDetails>
                 </Accordion>
             </Paper>
+
         </List>
     )
 }

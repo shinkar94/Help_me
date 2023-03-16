@@ -8,6 +8,7 @@ export const Content = () =>{
         <FlexContainer>
             <Routes>
                 <Route path={'/'} element={<StartPage />}/>
+                <Route path={'/help_me'} element={<StartPage />}/>
                 <Route path={'/CRM'} element={<div>CRM page</div>} />
                 <Route path={'/Vite'} element={<div>Vite page</div>} />
             </Routes>
