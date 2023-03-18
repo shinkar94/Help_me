@@ -21,5 +21,5 @@ const MyHedMenu = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 4px;
-  background: green;
+  //background: green;
 `

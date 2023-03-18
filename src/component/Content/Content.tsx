@@ -17,6 +17,7 @@ export const Content = () =>{
 }
 
 const FlexContainer = styled.div`
+  flex: 80vw;
   width: 100%;
   height: calc(100vh - 100px);
   display: flex;

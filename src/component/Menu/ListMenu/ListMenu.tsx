@@ -63,7 +63,7 @@ const List = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  width: 200px;
+  min-width: 200px;
   padding: 0px 0px;
 `
 const TitleList = styled.h4`
