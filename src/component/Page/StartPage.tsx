@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useReducer, useState} from 'react';
 import styled from "styled-components";
 import imgCopy from '../../img/icon/copy.png'
+import imgTick from '../../img/icon/tick.png'
+import {PageReducerType, StartPageReducer, ToggleOpacityAC} from "../../reducer/StartPageReducer";
 
 export const StartPage = () => {
     const pageText = {
@@ -10,7 +12,8 @@ export const StartPage = () => {
                 {text: "yarn add uuid", comment: ""},
                 {text: "yarn add @types/uuid", comment: ""},
                 {text: "yarn create react-app newapp --template typescript", comment: ""},
-                {text: "yarn add react@latest", comment: "-обновить все библиотеки"},
+                {text: "-обновить все библиотеки", comment: "Comment"},
+                {text: "yarn add react@latest", comment: ""},
                 {text: "yarn add react-router-dom", comment: ""},
                 {text: "yarn add @types/react-router-dom", comment: ""},
                 {text: "yarn add redux react-redux @types/react-redux", comment: ""},
@@ -18,10 +21,10 @@ export const StartPage = () => {
                 {text: "yarn add redux-thunk", comment: ""},
                 {text: "yarn add formik", comment: ""},
                 {text: "yarn add @reduxjs/toolkit", comment: ""},
-                {text: "-команды для Material UI:", comment: "-команды для Material UI"},
+                {text: "-команды для Material UI:", comment: "Comment"},
                 {text: "yarn add @mui/material @emotion/react @emotion/styled", comment: ""},
                 {text: "yarn add @mui/icons-material", comment: ""},
-                {text: "-обновление TS если Material UI не пошел", comment: ""},
+                {text: "-обновление TS если Material UI не пошел", comment: "Comment"},
                 {text: "-yarn add typescript", comment: ""},
                 {text: "-styled-components", comment: ""},
                 {text: "yarn add styled-components", comment: ""},
@@ -32,6 +35,8 @@ export const StartPage = () => {
         }
 
     }
+
+    const [opacityTick, tickDispatch] = useReducer(StartPageReducer,{opacity: 0})
 
     return (
         <Wrapper>
@@ -44,13 +49,22 @@ export const StartPage = () => {
                             const onclickHandler = () => {
                                 navigator.clipboard.writeText(el.text)
                             }
-                            const StyleBtn = {background: "none", border: "none", width: "60px", cursor: "pointer"}
-                            const ImgStyle = {width: "30px", height: "20px"}
+                            const clickCopyBtn = () =>{
+                                tickDispatch(ToggleOpacityAC(1))
+                            }
                             return (
                                 <BlockText key={index}>
-                                    <button onClick={onclickHandler} style={StyleBtn}><img src={imgCopy} alt="imgCopy" style={ImgStyle}/>
-                                    </button>
-                                    <p>{el.text}</p>
+                                    {
+                                        el.comment !== ""
+                                            ? <h4>{el.text}</h4>
+                                            : <>
+                                                <CopyBtn onClick={onclickHandler}>
+                                                <ImgTick  src={imgTick} alt="imgTick"  tick={opacityTick.opacity}/>
+                                                <img className="img2" src={imgCopy} alt="imgCopy" onClick={clickCopyBtn} />
+                                                </CopyBtn>
+                                                <p>{el.text}</p>
+                                            </>
+                                    }
                                 </BlockText>
                             )
                         })}
@@ -104,8 +118,14 @@ const BlockInf = styled.div`
     font-family: cursive;
     color: rgba(98, 98, 98, 0);
   }
-
-  img {
+  
+  .img2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 20px;
     opacity: 0;
   }
 
@@ -117,7 +137,7 @@ const BlockInf = styled.div`
     color: #b7b7b7;
   }
 
-  &:hover img {
+  &:hover .img2 {
     opacity: 1;
   }
 `
@@ -133,4 +153,22 @@ const BlockText = styled.div`
   &:hover p{
     color: white;
   }
+`
+
+const CopyBtn = styled.button`
+  position: relative;
+  display: inline-flex;
+  background: none;
+  border: none;
+  width: 60px;
+  cursor: pointer;
+  
+  
+`
+const ImgTick = styled.img<{tick: number}>`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: ${props => props.tick};
 `
