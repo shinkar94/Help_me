@@ -1,22 +1,23 @@
+import {v1} from "uuid";
+import {InfoBlockType, PageTextType} from "../component/Page/StartPage";
 
-export type PageReducerType = {
+
+
+export type StartPageReducerType = {
     opacity: number
+
 }
 
 
-
-export const StartPageReducer = (state:PageReducerType, action:GlobalType): PageReducerType =>{
+export const StartPageReducer = (state:StartPageReducerType, action:GlobalType): StartPageReducerType=>{
     switch (action.type){
         case "OPACITY-TICK":
             let stateCopy = {...state, opacity: action.payload.opacity}
-            setTimeout(()=>{
-                stateCopy = {...state, opacity: 0}
-            },2000)
             return  stateCopy
         default:
-            throw new Error("ERROR! Type not Found!!")
+            return state
     }
-    return state
+
 }
 type GlobalType = ToggleOpacityACType
 
@@ -29,3 +30,12 @@ export const ToggleOpacityAC=(opacity: number)=>{
         }
     }as const
 }
+// type ToggleTitleACType = ReturnType<typeof ToggleTitleAC>
+// export const ToggleTitleAC = (pageText: PageTextType)=>{
+//     return{
+//         type: 'CLICK-TITLE',
+//         payload:{
+//             pageText
+//         }
+//     }
+// }

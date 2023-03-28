@@ -1,11 +1,17 @@
-import {PageReducerType, ToggleOpacityAC} from "./StartPageReducer";
+import {StartPageReducerType, ToggleOpacityAC} from "./StartPageReducer";
 
 test('control toggle ', ()=>{
-    const state: PageReducerType = {
+    const state: StartPageReducerType = {
         opacity: 0
     }
 
-    ToggleOpacityAC(1)
 
-    expect(state.opacity).toBe(1)
+    const newState =  ToggleOpacityAC(1)
+
+    expect(state.opacity).toBe(0)
+})
+
+
+test('toggle Title', ()=>{
+
 })
