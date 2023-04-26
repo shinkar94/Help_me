@@ -1,32 +1,54 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './App.css';
 import {Header} from "./component/Header/Header";
 
 import {Menu} from "./component/Menu/Menu";
 import {Content} from "./component/Content/Content";
 import styled from "styled-components";
-import {StateType} from "./MyState/MyState";
-import HeaderAppBar from "./component/Header/HeaderAppBar";
 // @ts-ignore
 import videoFon from './video/fon.mp4';
 // @ts-ignore
 import audio from './audio/audio.mp3';
 
-type AppType = {
-    state: StateType
-}
 
-function App(props:AppType){
+
+function App(){
+    const [audioStarted, setAudioStarted] = useState(false);
+    function handlePlayClick() {
+        setAudioStarted(true);
+    }
+    const audioRef = useRef<any>(null);
+    useEffect(() => {
+        if (audioRef.current) {
+            const playPromise = audioRef.current.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    // Аудио начало воспроизводиться успешно
+                }).catch(() => {
+                    // Воспроизведение аудио было заблокировано, попросите пользователя разрешить его
+                    audioRef.current.play();
+                });
+            }
+        }
+    }, []);
     return (
         <GlobalWrapper>
             <video autoPlay muted loop preload="auto" style={{width: "100%", height:'100vh', objectFit: "cover"}}>
                 <source type="video/mp4" src={videoFon} />
             </video>
+            <Audio>
+                {!audioStarted && (
+                    <button onClick={handlePlayClick}>Воспроизвести</button>
+                )}
+                {audioStarted && (
+                    <audio src={audio} loop autoPlay />
+                )}
+            </Audio>
             {/*<audio controls src={audio} style={{position: "absolute", bottom: "0", right: "0", zIndex: 2}}></audio>*/}
             <GlobalContainer>
                 <Header />
                 <AllContent>
-                    <Menu state={props.state.StateMenu}/>
+                    <Menu />
                     <Content />
                 </AllContent>
             </GlobalContainer>
@@ -35,6 +57,14 @@ function App(props:AppType){
 }
 
 export default App
+
+const Audio = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+`
+
 const GlobalContainer = styled.div`
   position: absolute;
   top: 0;

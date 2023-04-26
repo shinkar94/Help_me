@@ -2,13 +2,13 @@ import styled from "styled-components";
 import React from "react";
 import {NavLink} from "react-router-dom";
 import {Img} from "../../../GlobalComponent/Img";
-import {InfObjectType} from "../../../MyState/MyState";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import {ExpandMore} from "@mui/icons-material";
 import Paper from "@mui/material/Paper";
+import {InfObjectType} from "../../../reducer/SideBarReducer";
 
 
 type ListMenuType = {

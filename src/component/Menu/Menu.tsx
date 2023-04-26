@@ -2,21 +2,17 @@ import styled from "styled-components";
 import {ListMenu} from "./ListMenu/ListMenu";
 import React, {useState} from "react";
 import {v1} from "uuid";
-import {ListArrayType} from "../../MyState/MyState";
+import {useAppSelector} from "../../hoks/hooks";
+import {ListArrayType} from "../../reducer/SideBarReducer";
 
-
-
-type MenuType = {
-    state: ListArrayType
-}
 type StatusMenuType = {
     id: string
     nameMenu: string
     isDone: boolean
 }
 
-export const Menu: React.FC<MenuType> = (props) => {
-    const {state} = props;
+export const Menu = () => {
+    const StateBar:ListArrayType = useAppSelector(state => state.sideBar.StateMenu)
     const [statusMenu, setMenu] = useState<StatusMenuType[]>([
         {id: v1(), nameMenu: "React", isDone: false},
         {id: v1(), nameMenu: "Js", isDone: false},
@@ -28,11 +24,11 @@ export const Menu: React.FC<MenuType> = (props) => {
     const Menu = statusMenu.map((el) => {
         let stateMenu
         if (el.nameMenu === "React") {
-            stateMenu = state.ReactInf
+            stateMenu = StateBar.ReactInf
         } else if (el.nameMenu === 'Js') {
-            stateMenu = state.JSInf
+            stateMenu = StateBar.JSInf
         } else {
-            stateMenu = state.CSSInf
+            stateMenu = StateBar.CSSInf
         }
         return <ListMenu key={el.id}
                          state={stateMenu}
