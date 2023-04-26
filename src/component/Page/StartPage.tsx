@@ -25,7 +25,15 @@ export const StartPage = () => {
 };
 
 const Wrapper = styled.div`
-
+  & h1 {
+    color: white;
+    background: rgba(128, 128, 128, 0.55);
+    width: 200px;
+    padding: 4px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px black;
+    text-shadow: 0 1px black;
+  }
 `
 const FirePanel = styled.div`
   display: flex;

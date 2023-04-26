@@ -4,6 +4,7 @@ import {Header} from "./component/Header/Header";
 
 import {Menu} from "./component/Menu/Menu";
 import {Content} from "./component/Content/Content";
+import soundIcon from './img/icon/sound.png'
 import styled from "styled-components";
 // @ts-ignore
 import videoFon from './video/fon.mp4';
@@ -38,7 +39,7 @@ function App(){
             </video>
             <Audio>
                 {!audioStarted && (
-                    <button onClick={handlePlayClick}>Воспроизвести</button>
+                    <button onClick={handlePlayClick}><img src={soundIcon} alt="sound"/></button>
                 )}
                 {audioStarted && (
                     <audio src={audio} loop autoPlay />
@@ -60,9 +61,18 @@ export default App
 
 const Audio = styled.div`
   position: fixed;
-  top: 0;
-  left: 0;
+  right: 20px;
+  bottom: 20px;
   z-index: 2;
+
+  & button {
+    width: 80px;
+    height: 80px;
+    background: rgba(128, 128, 128, 0.54);
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+  }
 `
 
 const GlobalContainer = styled.div`
