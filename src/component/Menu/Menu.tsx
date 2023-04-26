@@ -17,18 +17,24 @@ export const Menu = () => {
         {id: v1(), nameMenu: "React", isDone: false},
         {id: v1(), nameMenu: "Js", isDone: false},
         {id: v1(), nameMenu: "CSS", isDone: false},
+        {id: v1(), nameMenu: "Auxiliary", isDone: false}
     ])
     const addNewStatus = (id: string, newDone: boolean) => {
         setMenu(statusMenu.map((el) => el.id === id ? {...el, isDone: newDone} : el))
     }
     const Menu = statusMenu.map((el) => {
         let stateMenu
-        if (el.nameMenu === "React") {
-            stateMenu = StateBar.ReactInf
-        } else if (el.nameMenu === 'Js') {
-            stateMenu = StateBar.JSInf
-        } else {
-            stateMenu = StateBar.CSSInf
+        switch (el.nameMenu) {
+            case 'React':
+                stateMenu = StateBar.ReactInf
+                break
+            case 'Js':
+                stateMenu = StateBar.JSInf
+                break
+            case 'CSS':
+                stateMenu = StateBar.CSSInf
+                break
+            default: stateMenu = StateBar.Auxiliary
         }
         return <ListMenu key={el.id}
                          state={stateMenu}

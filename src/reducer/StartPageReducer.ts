@@ -44,6 +44,7 @@ const initialState: PageTextType = {
                 {idInfText: v1(),opacityTick: 0, title: "Обновление TS если Material UI не пошел", textLibrary: ["yarn add typescript"], titleStatus: false},
                 {idInfText: v1(),opacityTick: 0, title: "Styled-components", textLibrary: ["yarn add styled-components","yarn add @types/styled-components"], titleStatus: false},
                 {idInfText: v1(),opacityTick: 0, title: "Storybook", textLibrary: ["npx storybook@latest init"], titleStatus: false},
+                {idInfText: v1(),opacityTick: 0, title: "Chart.js", textLibrary: ["yarn install chart.js"], titleStatus: false},
             ]
         },
         FireLibrary : {
