@@ -3,7 +3,7 @@ import {ListMenu} from "./ListMenu/ListMenu";
 import React, {useState} from "react";
 import {v1} from "uuid";
 import {useAppSelector} from "../../hoks/hooks";
-import {ListArrayType} from "../../reducer/SideBarReducer";
+import {stateMenuSelector} from "../../reducer/selectors";
 
 type StatusMenuType = {
     id: string
@@ -12,7 +12,7 @@ type StatusMenuType = {
 }
 
 export const Menu = () => {
-    const StateBar:ListArrayType = useAppSelector(state => state.sideBar.StateMenu)
+    const StateBar = useAppSelector(stateMenuSelector)
     const [statusMenu, setMenu] = useState<StatusMenuType[]>([
         {id: v1(), nameMenu: "React", isDone: false},
         {id: v1(), nameMenu: "Js", isDone: false},

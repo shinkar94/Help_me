@@ -1,16 +1,25 @@
-import {combineReducers, createStore} from "redux";
-import {StartPageReducer} from "../reducer/StartPageReducer";
+import {Action, combineReducers, createStore} from "redux";
 import {SideBarReducer} from "../reducer/SideBarReducer";
+import {configureStore, ThunkAction} from "@reduxjs/toolkit";
+import {startPageReducer} from "../reducer/StartPageReducer";
 
 
-const RootReducer=combineReducers({
-    startPage: StartPageReducer,
-    sideBar: SideBarReducer
+export const store = configureStore({
+    reducer:{
+        startPage: startPageReducer,
+        sideBar: SideBarReducer
+    }
 })
 
-export const store=createStore(RootReducer)
-export type RootState=ReturnType<typeof RootReducer>
 
+export type RootState=ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch;
+export type AppThunk<ReturnType = void> = ThunkAction<
+    ReturnType,
+    RootState,
+    unknown,
+    Action<string>
+    >;
 
 // @ts-ignore
 window.store=store

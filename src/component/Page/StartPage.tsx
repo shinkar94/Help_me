@@ -5,9 +5,10 @@ import {PageTextType} from "../../reducer/StartPageReducer";
 import {useAppSelector} from "../../hoks/hooks";
 import {InfLibrary} from "./StartPageModule/InfLibrary";
 import {FireLibrary} from "./StartPageModule/FireLibrary";
+import {startPageSelector} from "../../reducer/selectors";
 
 export const StartPage = () => {
-    const statePageText:PageTextType = useAppSelector(state => state.startPage)
+    const statePageText = useAppSelector(startPageSelector)
 
     return (
         <Wrapper>

@@ -45,6 +45,11 @@ const Carbon = 'https://carbon.now.sh/static/brand/icon.png'
 const BoxShadow = 'https://box-shadow.dev/favicon.svg'
 const EvLoop = jsIcon
 const ChartJs = 'https://www.chartjs.org/docs/latest/favicon.ico'
+const Maket = 'https://www.creativosonline.org/wp-content/uploads/2020/05/cropped-favicon.png'
+const TSinfo = 'https://canonium.com/images/touch/favicon.png'
+const Rafactoring = 'https://refactoring.guru/favicon.png'
+const JsonToTS = 'https://transform.tools/static/favicon.png'
+const HTTP = 'https://developer.mozilla.org/favicon-48x48.cbbd161b.png'
 export const initialState:StateType = {
     StateMenu:{
         ReactInf: [
@@ -52,18 +57,19 @@ export const initialState:StateType = {
             {id: v1(), linkImg: `${viteImg}`, name:"vite", img: "vito", homeLink: false, netWorkLink: "https://vitejs.dev/"},
             {id: v1(), linkImg: `${StoryBook}`, name:"StoryBook", img: "StoryBook", homeLink: false, netWorkLink: "https://storybook.js.org/"},
             {id: v1(), linkImg: `${MaterialUI}`, name:"MaterialUI", img: "MaterialUI", homeLink: false, netWorkLink: "https://mui.com/"},
-            {id: v1(), linkImg: `${ChartJs}`, name:"Chart.JS", img: "Chart", homeLink: false, netWorkLink: "https://www.chartjs.org/docs/latest/samples/area/line-boundaries.html"}
+            {id: v1(), linkImg: `${ChartJs}`, name:"Chart.JS", img: "Chart", homeLink: false, netWorkLink: "https://www.chartjs.org/docs/latest/samples/area/line-boundaries.html"},
+            {id: v1(), linkImg: `${HTTP}`, name:"HTTP Response", img: "http", homeLink: false, netWorkLink: "https://developer.mozilla.org/ru/docs/Web/HTTP/Status"}
         ],
         JSInf: [
             {id: v1(), linkImg: `${Babel}`, name:"Babel", img: "Babel", homeLink: false, netWorkLink: "https://babeljs.io/"},
             {id: v1(), linkImg: `${EvLoop}`, name:"Event loop online", img: "EVLOOP", homeLink: false, netWorkLink: "http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D"},
-            {id: v1(), linkImg: `${reactImg}`, name:"JS", img: "CRM", homeLink: true, netWorkLink: ""},
-            {id: v1(), linkImg: `${reactImg}`, name:"JS", img: "CRM", homeLink: true, netWorkLink: ""},
-            {id: v1(), linkImg: `${reactImg}`, name:"JS", img: "CRM", homeLink: true, netWorkLink: ""}
+            {id: v1(), linkImg: `${TSinfo}`, name:"TS Type", img: "TS_INFO", homeLink: false, netWorkLink: "https://canonium.com/articles/typescript-generics/"},
+            {id: v1(), linkImg: `${Rafactoring}`, name:"Refactoring.Guru", img: "GURU", homeLink: true, netWorkLink: "https://refactoring.guru/ru/design-patterns"},
+            {id: v1(), linkImg: `${JsonToTS}`, name:"JSON_TO_TS", img: "CRM", homeLink: true, netWorkLink: "https://transform.tools/json-to-typescript"}
         ],
         CSSInf: [
             {id: v1(), linkImg: `${reactImg}`, name:"CSS", img: "CRM", homeLink: true, netWorkLink: ""},
-            {id: v1(), linkImg: `${reactImg}`, name:"CSS", img: "CRM", homeLink: true, netWorkLink: ""},
+            {id: v1(), linkImg: `${Maket}`, name:"HTML&CSS", img: "maket", homeLink: false, netWorkLink: "https://www.creativosonline.org/ru/html-css-%D1%84%D0%BE%D1%80%D0%BC%D1%8B.html"},
             {id: v1(), linkImg: `${BoxShadow}`, name:"Box-shadow-dev", img: "box-shadow", homeLink: false, netWorkLink: "https://box-shadow.dev/"},
             {id: v1(), linkImg: `${IconStyle}`, name:"FlatIcon", img: "FlatIcon", homeLink: false, netWorkLink: "https://www.flaticon.com/"},
             {id: v1(), linkImg: `${GPhotos}`, name:"Embed GPhotos", img: "CRM", homeLink: false, netWorkLink: "https://www.labnol.org/embed/google/photos/"}

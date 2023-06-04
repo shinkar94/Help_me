@@ -1,9 +1,12 @@
 import React, {FC} from 'react';
-import {LibraryInfoType, ToggleOpacityAC, ToggleTitleAC} from "../../../reducer/StartPageReducer";
+import {
+    LibraryInfoType,
+    startPageAction,
+} from "../../../reducer/StartPageReducer";
 import imgTick from "../../../img/icon/tick.png";
 import imgCopy from "../../../img/icon/copy.png";
-import {useDispatch} from "react-redux";
 import styled from "styled-components";
+import {useAppDispatch} from "../../../hoks/hooks";
 
 type InfLibraryType = {
     InfLibrary: LibraryInfoType
@@ -11,26 +14,26 @@ type InfLibraryType = {
 
 export const InfLibrary:FC<InfLibraryType> = (props) => {
     const {InfLibrary} = props
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     return (
         <>
         <h3>{InfLibrary.title}</h3>
         <div>
             {InfLibrary.infBlock.map((el) =>{
                 const clickTitle = () =>{
-                    dispatch(ToggleTitleAC(el.idInfText))
+                    dispatch(startPageAction.toggleTitle({id: el.idInfText}))
                 }
                 return(
                     <BlockText key={el.idInfText}>
-                        <h3 onClick={clickTitle}>{el.title}</h3>
+                        <h3 onClick={clickTitle} style={el.bgColor ? { backgroundColor: el.bgColor } : {}}>{el.title}</h3>
                         {el.titleStatus && el.textLibrary.map((text, index) => {
                             const onclickHandler = () => {
                                 navigator.clipboard.writeText(text)
                             }
                             const clickCopyBtn = () =>{
-                                dispatch(ToggleOpacityAC(el.idInfText, 1))
+                                dispatch(startPageAction.toggleOpacity({id: el.idInfText, opacity: 1}))
                                 setTimeout(()=>{
-                                    dispatch(ToggleOpacityAC(el.idInfText, 0))
+                                    dispatch(startPageAction.toggleOpacity({id: el.idInfText, opacity: 0}))
                                 },2000)
                             }
                             return(
