@@ -1,5 +1,7 @@
 import {v1} from "uuid";
 import jsIcon from '../img/icon/jsIcon.png'
+import npmImg from '../img/icon/npm.svg'
+import svgIcon from '../img/icon/svgIcon.svg'
 
 export type StateType ={
     StateMenu: ListArrayType
@@ -50,6 +52,10 @@ const TSinfo = 'https://canonium.com/images/touch/favicon.png'
 const Rafactoring = 'https://refactoring.guru/favicon.png'
 const JsonToTS = 'https://transform.tools/static/favicon.png'
 const HTTP = 'https://developer.mozilla.org/favicon-48x48.cbbd161b.png'
+const Toastify = 'https://fkhadra.github.io/react-toastify/img/favicon.ico'
+const Marquee = 'https://reactjsexample.com/favicon.png'
+const Loaders = 'https://cssloaders.github.io/images/favicon-32x32.png'
+
 export const initialState:StateType = {
     StateMenu:{
         ReactInf: [
@@ -72,7 +78,12 @@ export const initialState:StateType = {
             {id: v1(), linkImg: `${Maket}`, name:"HTML&CSS", img: "maket", homeLink: false, netWorkLink: "https://www.creativosonline.org/ru/html-css-%D1%84%D0%BE%D1%80%D0%BC%D1%8B.html"},
             {id: v1(), linkImg: `${BoxShadow}`, name:"Box-shadow-dev", img: "box-shadow", homeLink: false, netWorkLink: "https://box-shadow.dev/"},
             {id: v1(), linkImg: `${IconStyle}`, name:"FlatIcon", img: "FlatIcon", homeLink: false, netWorkLink: "https://www.flaticon.com/"},
-            {id: v1(), linkImg: `${GPhotos}`, name:"Embed GPhotos", img: "CRM", homeLink: false, netWorkLink: "https://www.labnol.org/embed/google/photos/"}
+            {id: v1(), linkImg: `${svgIcon}`, name:"SVGrepo", img: "SVGrepo", homeLink: false, netWorkLink: "https://www.svgrepo.com/"},
+            {id: v1(), linkImg: `${GPhotos}`, name:"Embed GPhotos", img: "CRM", homeLink: false, netWorkLink: "https://www.labnol.org/embed/google/photos/"},
+            {id: v1(), linkImg: `${Toastify}`, name:"Toastify", img: "Toastify", homeLink: false, netWorkLink: "https://fkhadra.github.io/react-toastify/introduction/"},
+            {id: v1(), linkImg: `${npmImg}`, name:"Skeleton", img: "Skeleton", homeLink: false, netWorkLink: "https://www.npmjs.com/package/react-loading-skeleton"},
+            {id: v1(), linkImg: `${Marquee}`, name:"Marquee", img: "Marquee", homeLink: false, netWorkLink: "https://reactjsexample.com/a-silky-smooth-marquee-with-react/"},
+            {id: v1(), linkImg: `${Loaders}`, name:"Loaders", img: "Loaders", homeLink: false, netWorkLink: "https://cssloaders.github.io/"},
         ],
         Auxiliary:[
             {id: v1(), linkImg: `${Carbon}`, name:"Carbon", img: "Carbon", homeLink: false, netWorkLink: "https://carbon.now.sh/"},

@@ -10,6 +10,7 @@ import styled from "styled-components";
 import videoFon from './video/fon.mp4';
 // @ts-ignore
 import audio from './audio/audio.mp3';
+import {ToastContainer} from "react-toastify";
 
 
 

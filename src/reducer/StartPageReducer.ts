@@ -1,5 +1,6 @@
 import {v1} from "uuid";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {toast} from "react-toastify";
 export type PageTextType = {
     library: LibraryType
     opacity: number
@@ -45,12 +46,15 @@ const initialState: PageTextType = {
                 {idInfText: v1(),opacityTick: 0,bgColor: "#985252FF", title: "Redux-Thunk", textLibrary: ["yarn add redux-thunk"], titleStatus: false},
                 {idInfText: v1(),opacityTick: 0,bgColor: "#985252FF", title: "Redux-Tolkit", textLibrary: ["yarn add @reduxjs/toolkit"], titleStatus: false},
                 {idInfText: v1(),opacityTick: 0,bgColor: "#985252FF", title: "Styled-components", textLibrary: ["yarn add styled-components","yarn add @types/styled-components"], titleStatus: false},
+                {idInfText: v1(),opacityTick: 0,bgColor: "#985252FF", title: "Toastify", textLibrary: ["yarn add react-toastify"], titleStatus: false},
                 {idInfText: v1(),opacityTick: 0,bgColor: "rgba(249,208,87,0.55)", title: "Auto-Animate", textLibrary: ["yarn add @formkit/auto-animate"], titleStatus: false},
                 {idInfText: v1(),opacityTick: 0,bgColor: "rgba(249,208,87,0.55)", title: "YUP", textLibrary: ["yarn add yup"], titleStatus: false},
+                {idInfText: v1(),opacityTick: 0,bgColor: "rgba(249,208,87,0.55)", title: "Skeleton", textLibrary: ["yarn add react-loading-skeleton"], titleStatus: false},
                 {idInfText: v1(),opacityTick: 0,bgColor: "#0F5096", title: "Material UI", textLibrary: ["yarn add @mui/material @emotion/react @emotion/styled","yarn add @mui/icons-material"], titleStatus: false},
                 {idInfText: v1(),opacityTick: 0,bgColor: "#0F5096", title: "Обновление TS если Material UI не пошел", textLibrary: ["yarn add typescript"], titleStatus: false},
                 {idInfText: v1(),opacityTick: 0,bgColor: "#0F5096", title: "Storybook", textLibrary: ["npx storybook@latest init"], titleStatus: false},
                 {idInfText: v1(),opacityTick: 0,bgColor: "", title: "Chart.js", textLibrary: ["yarn install chart.js"], titleStatus: false},
+                {idInfText: v1(),opacityTick: 0,bgColor: "", title: "Marquee", textLibrary: ["yarn add react-fast-marquee"], titleStatus: false},
                 {idInfText: v1(),opacityTick: 0,bgColor: "", title: "Обновить все библиотеки", textLibrary: ["yarn add react@latest"], titleStatus: false},
                 {idInfText: v1(),opacityTick: 0,bgColor: "", title: "CRA ERROR", textLibrary: ["yarn add --dev @babel/plugin-proposal-private-property-in-object"], titleStatus: false},
             ]
@@ -102,6 +106,7 @@ const slice = createSlice({
         },
         toggleOpacity: (state, action:PayloadAction<{id: string, opacity: number}>)=>{
             state.library.InfLibrary.infBlock.map(el=>el.idInfText === action.payload.id ? el.opacityTick = action.payload.opacity : el)
+            toast('good')
         }
     }
 })

@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-
-import {PageTextType} from "../../reducer/StartPageReducer";
 import {useAppSelector} from "../../hoks/hooks";
 import {InfLibrary} from "./StartPageModule/InfLibrary";
 import {FireLibrary} from "./StartPageModule/FireLibrary";
